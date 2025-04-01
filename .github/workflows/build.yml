@@ -63,7 +63,7 @@ jobs:
       - name: make
         run: |
           cd immortalwrt
-          make -j1 V=s
+          make
 
       - name: show dir
         run: |
