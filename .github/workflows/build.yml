@@ -40,13 +40,13 @@ jobs:
         run: |
           git clone https://github.com/immortalwrt/immortalwrt
           cd immortalwrt
-          git branch -a
-          git tag
-          git checkout openwrt-24.10
 
       - name: update feeds
         run: |
           cd immortalwrt
+          git checkout -b 23.05.4 v23.05.4
+          git branch
+          git describe --tags
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -56,6 +56,8 @@ jobs:
       - name: make defconfig and download (like:make menuconfig)
         run: |
           cd immortalwrt
+          git branch
+          git describe --tags
           ls -all
           make defconfig
           make -j1
