@@ -58,11 +58,6 @@ jobs:
           cd immortalwrt
           ls -all
           make defconfig
-          make download
-
-      - name: make
-        run: |
-          cd immortalwrt
           make -j1
 
       - name: show dir
